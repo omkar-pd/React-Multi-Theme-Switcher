@@ -1,10 +1,15 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import ThemeContext from "./ThemeContext";
+import { themes } from "../utils/themes";
 
 function ThemeProvider({ children }: { children: React.ReactNode }) {
 
-    const [theme, setTheme] = useState<'light' | 'dark' | 'colorful'>('light');
+    const [theme, setTheme] = useState<'light' | 'dark' | 'colorful'>(() => localStorage.getItem('theme') as 'light' | 'dark' | 'colorful' || 'light');
 
+    useEffect(() => {
+        document.body.className = themes[theme].className;
+        localStorage.setItem('theme', theme);
+    }, [theme]);
 
     const contextValue = useMemo(() => ({
         theme,

@@ -5,9 +5,9 @@ type ThemeContextType = {
   setTheme: (theme: 'light' | 'dark' | 'colorful') => void;
 };
 
-const ThemeContext = createContext<ThemeContextType> ( {
-    theme: 'light',
-    setTheme: () => {}
+const ThemeContext = createContext<ThemeContextType>({
+  theme: 'light',
+  setTheme: () => { }
 });
 
 export default ThemeContext;

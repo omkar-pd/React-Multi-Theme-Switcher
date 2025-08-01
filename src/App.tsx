@@ -1,10 +1,11 @@
 import './App.css'
 import ThemeProvider from './contexts/ThemeProvider'
-
+import Navbar from './components/Navbar'
 function App() {
 
   return (
     <ThemeProvider>
+      <Navbar />
       <div>
         <h1 className="text-3xl font-bold underline text-center mt-10">
           Multi Theme Switcher
