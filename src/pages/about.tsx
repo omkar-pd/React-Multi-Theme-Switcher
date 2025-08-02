@@ -1,6 +1,6 @@
 function About() {
     return (
-        <div className="flex flex-col items-center justify-center min-h-[70vh] p-6">
+        <div className="h-screen flex items-center justify-center">
             <div className="bg-white/90 dark:bg-gray-800/90 rounded-2xl shadow-xl p-8 max-w-2xl w-full">
                 <h1 className="text-4xl font-bold mb-4 text-center text-blue-600 dark:text-yellow-300">
                     About Us
