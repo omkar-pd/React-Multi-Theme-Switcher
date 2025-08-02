@@ -1,5 +1,5 @@
+import { Link } from "react-router";
 import { useTheme } from "../hooks/useTheme";
-
 
 function Navbar() {
     const { theme, setTheme } = useTheme();
@@ -17,9 +17,9 @@ function Navbar() {
                 <h1 className="text-xl font-bold">My Application</h1>
             </div>
             <ul className="nav-links flex space-x-4">
-                <li><a href="/">Home</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/contact">Contact</a></li>
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/about">About</Link></li>
+                <li><Link to="/contact">Contact</Link></li>
             </ul>
             <select
                 className="border rounded px-2 py-1 bg-inherit"

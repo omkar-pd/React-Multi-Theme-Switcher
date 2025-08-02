@@ -18,7 +18,7 @@
 
 /* Colorful Theme */
 .theme-colorful {
-  font-family: 'Pacifico', cursive;
+  font-family: "Pacifico", cursive;
   font-weight: 400;
   background: linear-gradient(90deg, #f472b6 0%, #facc15 50%, #34d399 100%);
   color: #fff;
@@ -26,4 +26,3 @@
 .theme-colorful select {
   @apply bg-yellow-300 text-black border-none;
 }
-
