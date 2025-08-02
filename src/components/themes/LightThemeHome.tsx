@@ -1,4 +1,11 @@
+import { useProducts } from "../../hooks/useProducts";
+
+
 function LightThemeHome() {
+    const { products, loading, error } = useProducts();
+    console.log(products);
+    console.log(loading);
+    console.log(error);
     return (
         <div className="light-theme-main-container min-h-screen bg-gray-50 flex flex-col items-center py-10 px-4">
             <header className="w-full max-w-2xl mb-8">

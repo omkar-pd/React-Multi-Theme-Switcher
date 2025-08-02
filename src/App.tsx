@@ -6,7 +6,6 @@ import ColorfulThemeHome from './components/themes/ColorfulThemeHome'
 
 function App() {
   const { theme } = useTheme();
-
   if (theme === 'light') return <LightThemeHome />;
   if (theme === 'dark') return <DarkThemeHome />;
   if (theme === 'colorful') return <ColorfulThemeHome />;
