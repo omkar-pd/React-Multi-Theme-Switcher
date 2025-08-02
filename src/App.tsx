@@ -1,16 +1,16 @@
 import './App.css'
+import { useTheme } from './hooks/useTheme'
+import LightThemeHome from './components/themes/LightThemeHome'
+import DarkThemeHome from './components/themes/DarkThemeHome'
+import ColorfulThemeHome from './components/themes/ColorfulThemeHome'
 
 function App() {
-  return (
-    <div>
-      <h1 className="text-3xl font-bold underline text-center mt-10">
-        Multi Theme Switcher
-      </h1>
-      <p className="text-center mt-5">
-        This is a simple example of a multi-theme switcher using React and Tailwind CSS.
-      </p>
-    </div>
-  )
+  const { theme } = useTheme();
+
+  if (theme === 'light') return <LightThemeHome />;
+  if (theme === 'dark') return <DarkThemeHome />;
+  if (theme === 'colorful') return <ColorfulThemeHome />;
+  return null;
 }
 
 export default App
