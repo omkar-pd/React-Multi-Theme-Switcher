@@ -65,8 +65,8 @@ function ProductGrid() {
     };
 
     return (
-        <div className="w-full flex justify-center">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 w-full max-w-7xl">
+        <div className="w-full flex justify-center px-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 w-full max-w-7xl justify-items-center">
                 {products.map(renderProductCard)}
             </div>
         </div>
