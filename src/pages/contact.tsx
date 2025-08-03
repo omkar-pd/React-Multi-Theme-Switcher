@@ -1,6 +1,6 @@
 function Contact() {
     return (
-        <div className="h-screen flex items-center justify-center">
+        <div className="h-screen flex items-center justify-center pt-20">
             <div className="bg-white/90 dark:bg-gray-800/90 rounded-2xl shadow-xl p-8 max-w-2xl w-full">
                 <h1 className="text-4xl font-bold mb-4 text-center text-green-600 dark:text-yellow-300">
                     Contact Us
