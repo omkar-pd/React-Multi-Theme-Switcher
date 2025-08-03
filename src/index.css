@@ -1,5 +1,21 @@
 @import "tailwindcss";
 
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
+}
+
+#root {
+  overflow: hidden;
+  min-height: 100vh;
+}
+
 /* Light Theme */
 .theme-light {
   @apply bg-gray-50 text-gray-900 font-sans;

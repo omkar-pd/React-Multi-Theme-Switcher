@@ -9,15 +9,15 @@ function App() {
   const { theme } = useTheme();
   
   const pageVariants = {
-    initial: { opacity: 0, y: 20 },
+    initial: { opacity: 0, y: 10 },
     in: { opacity: 1, y: 0 },
-    out: { opacity: 0, y: -20 }
+    out: { opacity: 0, y: -10 }
   };
 
   const pageTransition = {
     type: 'tween',
     ease: 'anticipate',
-    duration: 0.4
+    duration: 0.3
   };
 
   return (
@@ -28,6 +28,7 @@ function App() {
       exit="out"
       variants={pageVariants}
       transition={pageTransition}
+      className="overflow-hidden"
     >
       {theme === 'light' && <LightThemeHome />}
       {theme === 'dark' && <DarkThemeHome />}
