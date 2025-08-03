@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "../../hooks/useTheme";
 
 type ThemeSelectorProps = {
@@ -7,11 +9,23 @@ type ThemeSelectorProps = {
 
 function ThemeSelector({ variant = 'navbar', className = '' }: ThemeSelectorProps) {
     const { theme, setTheme } = useTheme();
+    const [isChanging, setIsChanging] = useState(false);
+
+    const handleThemeChange = (newTheme: 'light' | 'dark' | 'colorful') => {
+        if (newTheme === theme || isChanging) return;
+
+        setIsChanging(true);
+        
+        setTimeout(() => {
+            setTheme(newTheme);
+            setIsChanging(false);
+        }, 50);
+    };
 
     const getSelectStyles = () => {
         switch (variant) {
             case 'sidebar':
-                return 'w-full border-none rounded-lg px-3 py-2 bg-gray-800 text-yellow-300 font-bold text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-all';
+                return 'w-full border-none rounded-lg px-3 py-2 bg-gray-800 text-yellow-300 font-bold text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400';
             case 'mobile':
                 switch (theme) {
                     case 'light':
@@ -49,17 +63,62 @@ function ThemeSelector({ variant = 'navbar', className = '' }: ThemeSelectorProp
     };
 
     return (
-        <select
-            className={`${getSelectStyles()} ${className}`}
-            onChange={(e) => setTheme(e.target.value as 'light' | 'dark' | 'colorful')}
-            value={theme}
+        <motion.div
+            className="relative"
+            animate={isChanging ? {
+                scale: 0.95,
+                opacity: 0.7,
+            } : {
+                scale: 1,
+                opacity: 1,
+            }}
+            transition={{
+                type: "spring",
+                stiffness: 400,
+                damping: 30,
+                duration: 0.3
+            }}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
         >
-            {getOptions().map(option => (
-                <option key={option.value} value={option.value}>
-                    {option.label}
-                </option>
-            ))}
-        </select>
+            <select
+                className={`${getSelectStyles()} ${className}`}
+                onChange={(e) => handleThemeChange(e.target.value as 'light' | 'dark' | 'colorful')}
+                value={theme}
+                disabled={isChanging}
+                style={{
+                    cursor: isChanging ? 'wait' : 'pointer',
+                }}
+            >
+                {getOptions().map(option => (
+                    <option key={option.value} value={option.value}>
+                        {option.label}
+                    </option>
+                ))}
+            </select>
+            
+            <AnimatePresence>
+                {isChanging && (
+                    <motion.div
+                        className="absolute inset-0 flex items-center justify-center pointer-events-none"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.8 }}
+                        transition={{ duration: 0.2 }}
+                    >
+                        <motion.div
+                            className="w-4 h-4 border-2 border-current border-t-transparent rounded-full"
+                            animate={{ rotate: 360 }}
+                            transition={{
+                                duration: 1,
+                                repeat: Infinity,
+                                ease: "linear"
+                            }}
+                        />
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </motion.div>
     );
 }
 

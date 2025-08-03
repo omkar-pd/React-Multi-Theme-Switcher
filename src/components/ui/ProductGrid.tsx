@@ -1,23 +1,11 @@
 import { useProducts } from "../../hooks/useProducts";
 import { useTheme } from "../../hooks/useTheme";
 import ProductCard from "./ProductCard";
-import DarkProductCard from "./DarkProductCard";
-import ColorfulProductCard from "./ColorfulProductCard";
+import ProductCardSkeleton from "./ProductCardSkeleton";
 
 function ProductGrid() {
     const { products, loading, error } = useProducts();
     const { theme } = useTheme();
-
-    const getLoadingStyles = () => {
-        switch (theme) {
-            case 'light':
-                return 'text-gray-500';
-            case 'colorful':
-                return 'text-white font-pacifico';
-            default:
-                return 'text-yellow-400';
-        }
-    };
 
     const getErrorStyles = () => {
         switch (theme) {
@@ -42,7 +30,15 @@ function ProductGrid() {
     };
 
     if (loading) {
-        return <div className={`text-center ${getLoadingStyles()}`}>Loading products...</div>;
+        return (
+            <div className="w-full flex justify-center px-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 w-full max-w-7xl justify-items-center">
+                    {Array.from({ length: 10 }, (_, index) => (
+                        <ProductCardSkeleton key={`skeleton-${index}`} />
+                    ))}
+                </div>
+            </div>
+        );
     }
 
     if (error) {
@@ -53,21 +49,12 @@ function ProductGrid() {
         return <div className={`text-center ${getEmptyStyles()}`}>No products found.</div>;
     }
 
-    const renderProductCard = (product: any) => {
-        switch (theme) {
-            case 'dark':
-                return <DarkProductCard key={product.id} product={product} />;
-            case 'colorful':
-                return <ColorfulProductCard key={product.id} product={product} />;
-            default:
-                return <ProductCard key={product.id} product={product} />;
-        }
-    };
-
     return (
         <div className="w-full flex justify-center px-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 w-full max-w-7xl justify-items-center">
-                {products.map(renderProductCard)}
+                {products.map(product => (
+                    <ProductCard key={product.id} product={product} />
+                ))}
             </div>
         </div>
     );
