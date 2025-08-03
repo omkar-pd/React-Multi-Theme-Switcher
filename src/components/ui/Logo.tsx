@@ -26,18 +26,6 @@ function Logo({ variant = 'navbar', size = 'medium' }: LogoProps) {
     return theme === 'light' ? 'border-2 border-gray-200' : 'border-2 border-white/30';
   };
 
-  const getTextStyles = () => {
-    if (variant === 'sidebar') {
-      return 'text-xl tracking-wide';
-    }
-    return `text-xl font-bold ${theme === 'colorful' ? 'font-pacifico' : theme === 'light' ? 'font-semibold' : ''}`;
-  };
-
-  const getText = () => {
-    if (variant === 'sidebar') return 'Dashboard';
-    return theme === 'colorful' ? 'Multi Theme' : 'Dashboard';
-  };
-
   return (
     <div className="flex items-center gap-3">
       <img
@@ -46,9 +34,6 @@ function Logo({ variant = 'navbar', size = 'medium' }: LogoProps) {
         className={`rounded-full transition-all duration-200 ${getBorderStyles()}`}
         style={getImageSize()}
       />
-      <span className={getTextStyles()}>
-        {getText()}
-      </span>
     </div>
   );
 }
