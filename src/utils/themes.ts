@@ -1,4 +1,4 @@
-// themes.ts
+// Themes with their names and class names.
 export type ThemeName = 'light' | 'dark' | 'colorful';
 
 export const themes = {
