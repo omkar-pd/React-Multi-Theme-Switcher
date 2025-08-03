@@ -8,6 +8,7 @@ import ColorfulThemeHome from './components/themes/ColorfulThemeHome'
 function App() {
   const { theme } = useTheme();
   
+  // Animation variants for page transitions.
   const pageVariants = {
     initial: { opacity: 0, y: 10 },
     in: { opacity: 1, y: 0 },
@@ -30,6 +31,7 @@ function App() {
       transition={pageTransition}
       className="overflow-hidden"
     >
+      {/* Conditionally render theme-specific home components */}
       {theme === 'light' && <LightThemeHome />}
       {theme === 'dark' && <DarkThemeHome />}
       {theme === 'colorful' && <ColorfulThemeHome />}

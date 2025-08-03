@@ -16,50 +16,58 @@ body {
   min-height: 100vh;
 }
 
-/* Light Theme */
+/* Light Theme Styling. */
 .theme-light {
   @apply bg-gray-50 text-gray-900 font-sans;
-  font-family: 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, 'sans-serif';
+  font-family: "Inter", "Segoe UI", "Helvetica Neue", Arial, "sans-serif";
   background: #f9fafb;
   font-weight: 400;
   letter-spacing: 0.01em;
 }
+
 .theme-light select {
   @apply bg-white text-gray-900 border border-gray-200;
 }
+
 .theme-light .minimal-container {
   @apply max-w-2xl mx-auto px-4 py-12;
   background: transparent;
   box-shadow: none;
   border-radius: 0;
 }
-.theme-light h1, .theme-light h2, .theme-light h3 {
+
+.theme-light h1,
+.theme-light h2,
+.theme-light h3 {
   @apply font-semibold;
   font-family: inherit;
 }
+
 .theme-light .minimal-card {
   background: #fff;
   border-radius: 0.75rem;
-  box-shadow: 0 1px 4px 0 rgba(0,0,0,0.03);
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.03);
   border: 1px solid #e5e7eb;
   padding: 2rem;
 }
 
-/* Dark Theme */
+/* Dark Theme Styling. */
 .theme-dark {
   @apply bg-gray-900 text-gray-100 font-serif font-bold;
 }
+
 .theme-dark select {
   @apply bg-gray-900 text-gray-100 border-none;
 }
 
-/* Colorful Theme */
+/* Colorful Theme Styling. */
 .theme-colorful {
   font-family: "Pacifico", cursive;
   font-weight: 400;
   background: linear-gradient(90deg, #f472b6 0%, #facc15 50%, #34d399 100%);
   color: #fff;
 }
+
 .theme-colorful select {
   @apply bg-yellow-300 text-black border-none;
 }

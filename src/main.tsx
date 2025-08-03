@@ -11,8 +11,10 @@ import { ProductsProvider } from './contexts/ProductsProvider.tsx'
 import { useTheme } from './hooks/useTheme'
 import Sidebar from './components/Sidebar'
 
+// Wrapper component to conditionally render navbar or sidebar.
 function AppWithNavOrSidebar() {
   const { theme } = useTheme();
+
   return (
     <div className={theme === 'dark' ? 'flex min-h-screen' : ''}>
       {theme === 'dark' ? <Sidebar /> : <Navbar />}

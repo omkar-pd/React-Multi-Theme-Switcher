@@ -41,14 +41,15 @@ function ProductGrid() {
         }
     };
 
+    // Loading state with skeleton cards.
     if (loading) {
         return (
-            <motion.div 
+            <motion.div
                 className="w-full flex justify-center px-4"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
             >
-                <motion.div 
+                <motion.div
                     className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 w-full max-w-7xl justify-items-center"
                     variants={containerVariants}
                     initial="hidden"
@@ -72,7 +73,7 @@ function ProductGrid() {
 
     if (error) {
         return (
-            <motion.div 
+            <motion.div
                 className={`text-center ${getErrorStyles()}`}
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -85,7 +86,7 @@ function ProductGrid() {
 
     if (!products || products.length === 0) {
         return (
-            <motion.div 
+            <motion.div
                 className={`text-center ${getEmptyStyles()}`}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -96,14 +97,15 @@ function ProductGrid() {
         );
     }
 
+    // Render the Product Grid.
     return (
-        <motion.div 
+        <motion.div
             className="w-full flex justify-center px-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.3 }}
         >
-            <motion.div 
+            <motion.div
                 className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 w-full max-w-7xl justify-items-center"
                 variants={containerVariants}
                 initial="hidden"
@@ -114,8 +116,8 @@ function ProductGrid() {
                         key={product.id}
                         variants={{
                             hidden: { opacity: 0, y: 20 },
-                            visible: { 
-                                opacity: 1, 
+                            visible: {
+                                opacity: 1,
                                 y: 0,
                                 transition: {
                                     delay: index * 0.05

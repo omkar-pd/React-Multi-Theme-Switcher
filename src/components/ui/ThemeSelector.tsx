@@ -13,7 +13,6 @@ function ThemeSelector({ variant = 'navbar', className = '' }: ThemeSelectorProp
 
     const handleThemeChange = (newTheme: 'light' | 'dark' | 'colorful') => {
         if (newTheme === theme || isChanging) return;
-
         setIsChanging(true);
         
         setTimeout(() => {
@@ -22,6 +21,7 @@ function ThemeSelector({ variant = 'navbar', className = '' }: ThemeSelectorProp
         }, 50);
     };
 
+    // Dynamic styling based on current theme and component variant.
     const getSelectStyles = () => {
         switch (variant) {
             case 'sidebar':
@@ -35,7 +35,7 @@ function ThemeSelector({ variant = 'navbar', className = '' }: ThemeSelectorProp
                     default:
                         return 'border rounded px-2 py-1 bg-inherit';
                 }
-            default:
+            default: // navbar.
                 switch (theme) {
                     case 'light':
                         return 'bg-white text-gray-800 border border-gray-300 rounded-lg px-3 py-2 font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm';
@@ -47,6 +47,7 @@ function ThemeSelector({ variant = 'navbar', className = '' }: ThemeSelectorProp
         }
     };
 
+    // Different option labels for mobile vs desktop
     const getOptions = () => {
         if (variant === 'mobile') {
             return [
@@ -97,6 +98,7 @@ function ThemeSelector({ variant = 'navbar', className = '' }: ThemeSelectorProp
                 ))}
             </select>
             
+            {/* Loading spinner overlay during theme changes */}
             <AnimatePresence>
                 {isChanging && (
                     <motion.div
