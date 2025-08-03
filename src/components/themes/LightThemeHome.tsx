@@ -1,9 +1,7 @@
-import { useProducts } from "../../hooks/useProducts";
-import ProductList from "../ui/ProductList";
+import ProductGrid from "../ui/ProductGrid";
 
 
 function LightThemeHome() {
-    const { products, loading, error } = useProducts();
     return (
         <div className="light-theme-main-container min-h-screen bg-gray-50 flex flex-col items-center py-12 px-2 pt-24">
             <header className="w-full mb-10">
@@ -19,7 +17,7 @@ function LightThemeHome() {
                     </button>
                 </section>
                 <section className="w-full">
-                    <ProductList products={products} loading={loading} error={error} />
+                    <ProductGrid />
                 </section>
             </main>
         </div>
