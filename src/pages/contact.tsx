@@ -24,7 +24,7 @@ function Contact() {
             y: 0,
             transition: {
                 duration: 0.6,
-                ease: "easeOut"
+                ease: [0.6, -0.05, 0.01, 0.99] as const
             }
         }
     };
@@ -36,8 +36,8 @@ function Contact() {
     };
 
     const pageTransition = {
-        type: 'tween',
-        ease: 'anticipate',
+        type: 'tween' as const,
+        ease: [0.6, -0.05, 0.01, 0.99] as const,
         duration: 0.3
     };
 
@@ -92,8 +92,6 @@ function Contact() {
                         placeholder="Your Name"
                         className="rounded px-3 py-2 border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-green-400"
                         variants={itemVariants}
-                        whileFocus="focus"
-                        animate="blur"
                         required
                     />
                     <motion.input
@@ -101,8 +99,6 @@ function Contact() {
                         placeholder="Your Email"
                         className="rounded px-3 py-2 border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-green-400"
                         variants={itemVariants}
-                        whileFocus="focus"
-                        animate="blur"
                         required
                     />
                     <motion.textarea
@@ -110,8 +106,6 @@ function Contact() {
                         rows={4}
                         className="rounded px-3 py-2 border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-green-400"
                         variants={itemVariants}
-                        whileFocus="focus"
-                        animate="blur"
                         required
                     />
                     <motion.button

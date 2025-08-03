@@ -79,7 +79,7 @@ function ProductCard({ product }: ProductCardProps) {
             scale: 1,
             transition: {
                 duration: 0.5,
-                ease: "easeOut"
+                ease: [0.6, -0.05, 0.01, 0.99] as const
             }
         },
         hover: {
@@ -92,7 +92,7 @@ function ProductCard({ product }: ProductCardProps) {
                     : "0 20px 40px rgba(0, 0, 0, 0.1)",
             transition: {
                 duration: 0.3,
-                ease: "easeInOut"
+                ease: [0.6, -0.05, 0.01, 0.99] as const
             }
         }
     };
@@ -103,7 +103,7 @@ function ProductCard({ product }: ProductCardProps) {
             rotate: 5,
             transition: {
                 duration: 0.3,
-                ease: "easeInOut"
+                ease: [0.6, -0.05, 0.01, 0.99] as const
             }
         }
     };

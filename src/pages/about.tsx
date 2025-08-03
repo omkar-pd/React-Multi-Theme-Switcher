@@ -22,7 +22,7 @@ function About() {
             y: 0,
             transition: {
                 duration: 0.6,
-                ease: "easeOut"
+                ease: [0.6, -0.05, 0.01, 0.99] as const
             }
         }
     };
@@ -34,14 +34,14 @@ function About() {
             scale: 1,
             transition: {
                 duration: 0.5,
-                ease: "easeOut"
+                ease: [0.6, -0.05, 0.01, 0.99] as const
             }
         },
         hover: {
             scale: 1.05,
             transition: {
                 duration: 0.2,
-                ease: "easeInOut"
+                ease: [0.6, -0.05, 0.01, 0.99] as const
             }
         }
     };
@@ -53,8 +53,8 @@ function About() {
     };
 
     const pageTransition = {
-        type: 'tween',
-        ease: 'anticipate',
+        type: 'tween' as const,
+        ease: [0.6, -0.05, 0.01, 0.99] as const,
         duration: 0.3
     };
 
